@@ -10,8 +10,6 @@ import com.example.smartharvest.R
 import com.example.smartharvest.ui.home.HomeFragment
 import com.example.smartharvest.ui.login.LoginActivity
 import com.example.smartharvest.ui.register.RegisterActivity
-import kotlinx.android.synthetic.main.activity_welcome_page.loginawalButton
-import kotlinx.android.synthetic.main.activity_welcome_page.registerawalButton
 
 class WelcomePageActivity : AppCompatActivity() , View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {

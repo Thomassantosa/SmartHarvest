@@ -76,7 +76,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/passwordconfirmation"
+                android:id="@+id/confirmpassword"
                 android:background="@drawable/custom_edittext"
                 android:layout_marginTop="20dp"
                 android:inputType="textPassword"
@@ -100,8 +100,7 @@
                 android:padding="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:entries="@array/options_array"
-                android:prompt="Pilih Opsi"/>
+                android:entries="@array/options_array"/>
 
             <Button
                 android:layout_width="match_parent"
