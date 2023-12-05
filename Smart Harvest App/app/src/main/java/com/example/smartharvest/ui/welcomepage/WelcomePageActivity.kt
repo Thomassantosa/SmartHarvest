@@ -33,7 +33,7 @@ class WelcomePageActivity : AppCompatActivity() , View.OnClickListener {
             R.id.welcomeloginButton-> {
                 startActivity(Intent(this@WelcomePageActivity, LoginActivity::class.java))
             }
-            welcomeregisterButton -> {
+            R.id.welcomeregisterButton -> {
                 startActivity(Intent(this@WelcomePageActivity, RegisterActivity::class.java))
             }
         }
