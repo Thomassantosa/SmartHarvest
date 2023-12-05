@@ -45,15 +45,15 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 val confrimpassword = confirmpasswordEditText.text.toString()
 
                 if (email.isEmpty()) {
-                    Toast.makeText(this@RegisterActivity, "Email tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RegisterActivity, "Email cannot be empty", Toast.LENGTH_SHORT).show()
                 }else if (password.isEmpty()){
-                    Toast.makeText(this@RegisterActivity, "Password tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RegisterActivity, "Password cannot be empty", Toast.LENGTH_SHORT).show()
                 }else if (name.isEmpty()){
-                    Toast.makeText(this@RegisterActivity, "Name tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RegisterActivity, "Name cannot be empty", Toast.LENGTH_SHORT).show()
                 }else if (confrimpassword.isEmpty()){
-                    Toast.makeText(this@RegisterActivity, "Confirmation Password tidak boleh kosong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RegisterActivity, "Confirmation Password cannot be empty", Toast.LENGTH_SHORT).show()
                 }else if (confrimpassword != password){
-                    Toast.makeText(this@RegisterActivity, "Confirmation Password tidak sama dengan password", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@RegisterActivity, "Incorrect confirmation password", Toast.LENGTH_SHORT).show()
                 } else {
                     val moveDataIntent = Intent(this@RegisterActivity, MainActivity::class.java)
                     moveDataIntent.putExtra(MainActivity.EXTRA_EMAIL, email)
