@@ -1,12 +1,12 @@
 # SmartHarvest
 
 ## Team Member
-| Name | Campus | Contribution |
-| --- | --- | --- |
-| Haekal | STMIK AMIK | Machine Learning |
-| Pieter | UNPAD | Machine Learning |
-| Daniel | ITHB | Machine Learning |
-| Satria | UNINUS | Cloud Computing |
-| Philip | ITHB | Cloud Computing |
-| Thomas | ITHB | Android Development |
-| Taufiq | UPNVJT | Android Development |
+Bangkit ID| Name | Campus | Contribution |
+| --- | --- | --- | --- |
+| M369BSY0120 | Haekal | STMIK AMIK | Machine Learning |
+| M011BSY1330 | Pieter | UNPAD | Machine Learning |
+| M003BSY0004 | Daniel | ITHB | Machine Learning |
+| C630BSY3052 | Satria | UNINUS | Cloud Computing |
+| C003BSY3228 | Philip | ITHB | Cloud Computing |
+| A003BSY2975 | Thomas | ITHB | Android Development |
+| A296BSY2483 | Taufiq | UPNVJT | Android Development |
