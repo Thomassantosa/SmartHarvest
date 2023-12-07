@@ -3,6 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_qr">QR</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -13,14 +14,22 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
-    <!--String for dropdown register-->
+    <!-- Strings for dropdown register-->
     <string-array name="options_array">
         <item>Food Producer</item>
         <item>Distributor</item>
         <item>Seller</item>
         <item>Customer</item>
-
     </string-array>
+
+    <!-- Strings for product_catalog_item.xml  -->
+    <string name="product_catalog_image">Product Catalog Image</string>
+    <string name="product_catalog_title">Product Catalog Name</string>
+    <string name="product_catalog_category">Category</string>
+    <string name="product_catalog_description">Description, Eros sociosqu ex dolor aliquet condimentum pharetra lobortis suscipit metus ornare.</string>
+    <string name="product_catalog_price">National Price</string>
+    <string name="product_catalog_price_value">IDR 15.000</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

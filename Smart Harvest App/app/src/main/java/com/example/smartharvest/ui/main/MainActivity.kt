@@ -1,5 +1,6 @@
-package com.example.smartharvest
+package com.example.smartharvest.ui.main
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -8,29 +9,45 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.smartharvest.R
 import com.example.smartharvest.databinding.ActivityMainBinding
+import com.example.smartharvest.helper.ViewModelFactory
 import com.example.smartharvest.ui.welcomepage.WelcomePageActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
-    companion object {
-        const val EXTRA_EMAIL = "extra_email"
-        const val EXTRA_PASSWORD = "extra_password"
-    }
+    private lateinit var factory: ViewModelFactory
+    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        checkinglogin()
+        setupViewModel()
+        setupView()
+    }
 
+    private fun setupViewModel() {
+        factory = ViewModelFactory.getInstance(binding.root.context)
+
+        mainViewModel.getUser().observe(this) { user ->
+            if (user.token.isNotEmpty()) {
+//                binding.greeting.text = getString(R.string.greeting, user.name)
+            } else {
+                startActivity(Intent(this, WelcomePageActivity::class.java))
+                finish()
+            }
+        }
+    }
+
+    private fun setupView() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -41,13 +58,4 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-
-    private fun checkinglogin() {
-        val email = intent.getStringExtra(EXTRA_EMAIL)
-        val password = intent.getStringExtra(EXTRA_PASSWORD)
-        if (email == null && password == null){
-            startActivity(Intent(this@MainActivity, WelcomePageActivity::class.java))
-        }
-    }
-
 }
