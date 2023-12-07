@@ -7,6 +7,7 @@ import com.example.smartharvest.data.repository.Repository
 import com.example.smartharvest.dependencyInjection.Injection
 import com.example.smartharvest.ui.home.HomeViewModel
 import com.example.smartharvest.ui.login.LoginViewModel
+import com.example.smartharvest.ui.main.MainViewModel
 import com.example.smartharvest.ui.register.RegisterViewModel
 
 class ViewModelFactory(private val repository: Repository) : ViewModelProvider.NewInstanceFactory() {
@@ -19,6 +20,9 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+                MainViewModel(repository) as T
             }
 //            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
 //                HomeViewModel(repository) as T
