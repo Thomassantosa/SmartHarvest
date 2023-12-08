@@ -1,17 +1,20 @@
 package com.example.smartharvest.data.responses
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class ProductCatalogResponse(
 
-	@field:SerializedName("data")
-	val data: List<ProductCatalogItem>,
+	@field:SerializedName("productcatalog")
+	val productcatalog: List<ProductcatalogItem>,
 
 	@field:SerializedName("message")
 	val message: String
 )
 
-data class ProductCatalogItem(
+@Parcelize
+data class ProductcatalogItem(
 
 	@field:SerializedName("photoUrl")
 	val photoUrl: String,
@@ -29,8 +32,8 @@ data class ProductCatalogItem(
 	val description: String,
 
 	@field:SerializedName("id")
-	val id: Int,
+	val id: String,
 
 	@field:SerializedName("category")
 	val category: String
-)
+): Parcelable

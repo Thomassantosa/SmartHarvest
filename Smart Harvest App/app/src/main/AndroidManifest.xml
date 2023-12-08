@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartHarvest"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.detailproductcatalog.ProductCatalogDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.welcomepage.WelcomePageActivity"
             android:exported="false" />

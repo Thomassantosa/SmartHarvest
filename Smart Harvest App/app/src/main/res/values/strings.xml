@@ -27,8 +27,11 @@
     <string name="product_catalog_title">Product Catalog Name</string>
     <string name="product_catalog_category">Category</string>
     <string name="product_catalog_description">Description, Eros sociosqu ex dolor aliquet condimentum pharetra lobortis suscipit metus ornare.</string>
-    <string name="product_catalog_price">National Price</string>
-    <string name="product_catalog_price_value">IDR 15.000</string>
+    <string name="product_catalog_national_price">National Price</string>
+    <string name="product_catalog_national_price_value">IDR 15.000</string>
+    <string name="product_catalog_prediction_price">Prediction Price</string>
+    <string name="product_catalog_prediction_price_value">IDR 15.500</string>
+    <string name="product_catalog_prediction_date">(next week)</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
