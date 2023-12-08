@@ -36,7 +36,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         return dataStore.data.map { preferences ->
             LoginResult(
                 preferences[NAME_KEY] ?: "",
-                preferences[ID_KEY] ?: 0,
+                preferences[ID_KEY] ?: "",
                 preferences[TOKEN_KEY] ?: "",
                 preferences[TYPE_KEY] ?: ""
             )
@@ -48,7 +48,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         private var INSTANCE: UserPreference? = null
 
         private val NAME_KEY = stringPreferencesKey("name")
-        private val ID_KEY = intPreferencesKey("id")
+        private val ID_KEY = stringPreferencesKey("id")
         private val TOKEN_KEY = stringPreferencesKey("token")
         private val TYPE_KEY = stringPreferencesKey("type")
 
