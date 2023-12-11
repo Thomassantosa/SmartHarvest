@@ -24,9 +24,9 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(repository) as T
             }
-//            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-//                HomeViewModel(repository) as T
-//            }
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
+                HomeViewModel(repository) as T
+            }
 //            modelClass.isAssignableFrom(QRViewModel::class.java) -> {
 //                QRViewModel(repository) as T
 //            }
