@@ -1,9 +1,10 @@
 const express = require('express')
 const { getAllProducts, getProductByCategory, getProductById } = require('./product.service')
+const verifyToken = require('../middleware/verify.token')
 
 const rProduct = express.Router()
 
-rProduct.get('/test-products', (req, res) => {
+rProduct.get('/test-products', verifyToken, (req, res) => {
   res.send({
     message: 'this endpoint ready to use!',
   })
