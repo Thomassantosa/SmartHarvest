@@ -82,4 +82,7 @@ dependencies {
 
     // Paging
     implementation("androidx.paging:paging-runtime-ktx:3.2.1")
+
+    // QR
+    implementation ("com.github.yuriy-budiyev:code-scanner:2.3.0")
 }
