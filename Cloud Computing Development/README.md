@@ -24,7 +24,7 @@ The SmartHarvest API is an integral component of the SmartHarvest application. I
       <td>Philip Evandry</td>
 			<td>Institut Teknologi Harapan Bangsa</td>
 			<td>C003BSY3228</td>
-			<td><p><a href="#">Instagram</a></p> & <p><a href="#"> Github</a></p></td>
+			<td><p><a href="https://www.instagram.com/philipevandry15/">Instagram</a></p> & <p><a href="https://github.com/philipevandry"> Github</a></p></td>
     </tr>
   </tbody>
 </table>
