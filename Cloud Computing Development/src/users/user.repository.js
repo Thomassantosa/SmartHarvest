@@ -27,7 +27,7 @@ const insertUser = async (newUserData) => {
       email: newUserData.email,
       password: hashPassword,
       type: newUserData.type,
-      picture: newUserData.picture,
+      photo_url: newUserData.photo_url,
     },
   })
 
@@ -45,8 +45,8 @@ const findUserWithEmail = async (userEmail) => {
 }
 
 const editUser = async (userEmail, userData) => {
-  const salt = await bcrypt.genSalt()
-  const hashPassword = await bcrypt.hash(userData.password, salt)
+  // const salt = await bcrypt.genSalt()
+  // const hashPassword = await bcrypt.hash(userData.password, salt)
 
   const user = await prisma.users.update({
     where: {
@@ -55,9 +55,9 @@ const editUser = async (userEmail, userData) => {
     data: {
       name: userData.name,
       email: userData.email,
-      password: hashPassword,
+      // password: hashPassword,
       type: userData.type,
-      picture: userData.picture,
+      photo_url: userData.photo_url,
     },
   })
 

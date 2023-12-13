@@ -6,66 +6,73 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  // provider = "mysql"
+  // provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-model Product_items {
-  id                String        @id @default(uuid())
+model Product_catalog {
+  id                String        @id @default(cuid())
   category          String
   name              String
   description       String
-  picture           String?
+  photo_url         String?
   national_price    Int
   prediction_price  Int
 
   //foreign key
-  products          Products[]
+  products          Product_item[]
 }
 
 model Users {
-  id                String          @id @default(uuid())
+  id                String          @id @default(cuid())
   email             String          @unique
   name              String
   password          String
   type              String
-  picture           String?
+  photo_url         String?
   refreshToken      String?
 
-  producers         Products[]      @relation("productProducers")
-  distributors      Products[]      @relation("productDistributors")
-  sellers           Products[]      @relation("productSellers")
+  producers         Product_item[]      @relation("productProducers")
+  distributors      Product_item[]      @relation("productDistributors")
+  sellers           Product_item[]      @relation("productSellers")
 
   //
 }
 
 
-model Products {
-  id                String          @id @default(uuid())
-  productitem_id    String
-  producer_id       String        
-  distributor_id    String
-  seller_id         String
-  description       String
-  picture           String?
-  harvest_date      DateTime
 
-  productitems      Product_items   @relation(fields: [productitem_id], references: [id])
-  producers         Users           @relation("productProducers", fields: [producer_id], references: [id])
-  distributors      Users           @relation("productDistributors", fields: [distributor_id], references: [id])
-  sellers           Users           @relation("productSellers", fields: [seller_id], references: [id])
+model Product_item {
+  id                    String          @id @default(cuid())
+  productcatalog_id     String
+  producer_id           String
+  distributor_id        String
+  seller_id             String
+  description           String
+  photo_url             String
+  price_producers       Int
+  price_distributor     Int
+  price_seller          Int
+  harvest_date          DateTime?
+  harvest_place         String?
 
-  store_prices      Store_prices[]
+
+  products_catalog          Product_catalog   @relation(fields: [productcatalog_id], references: [id])
+  producers                 Users             @relation("productProducers", fields: [producer_id], references: [id])
+  distributors              Users             @relation("productDistributors", fields: [distributor_id], references: [id])
+  sellers                   Users             @relation("productSellers", fields: [seller_id], references: [id])
+
+  sell_prices               Sell_prices[]
+
 }
 
 
-model Store_prices {
-  id                String          @id @default(uuid())
+model Sell_prices{
+  id                String          @id @default(cuid())
   product_id        String
   createdAt         DateTime        @default(now())
   updatedAt         DateTime        @updatedAt
   store_price       Int
 
-  products          Products        @relation(fields: [product_id], references: [id])
+  products          Product_item        @relation(fields: [product_id], references: [id])
 }

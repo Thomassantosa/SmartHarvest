@@ -82,10 +82,14 @@ router.get('/user/:email', async (req, res) => {
   }
 })
 
-router.patch('/user/:email', async (req, res) => {
+router.put('/user/:email', async (req, res) => {
   try {
     const userEmail = req.params.email
     const userData = req.body
+
+    if ((userData.email || userData.password) != null) {
+      throw Error()
+    }
 
     await editUserByEmail(userEmail, userData)
 
@@ -98,11 +102,14 @@ router.patch('/user/:email', async (req, res) => {
         name: user.name,
         email: user.email,
         type: user.type,
-        photoUrl: user.picture,
+        photo_url: user.photo_url,
       },
     })
   } catch (error) {
-    res.send(error)
+    console.log(error)
+    // res.status(400).send({
+    //   message: "You Can't Change Email and Password",
+    // })
   }
 })
 
