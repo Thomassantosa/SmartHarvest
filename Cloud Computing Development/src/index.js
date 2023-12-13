@@ -2,17 +2,16 @@ const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const router = require('./users/user.controller')
+<<<<<<< Updated upstream
+=======
+const rProduct = require('./products/product.controller')
+const rProductItem = require('./product-item/productitem.controller')
+>>>>>>> Stashed changes
 
 dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT
-
-app.get('/', (req, res) => {
-  res.send({
-    message: 'API siap untuk digunakan',
-  })
-})
 
 app.use(
   cors({

@@ -41,6 +41,7 @@ model Users {
 }
 
 
+<<<<<<< Updated upstream
 model Products {
   id                String          @id @default(uuid())
   productitem_id    String
@@ -50,13 +51,37 @@ model Products {
   description       String
   picture           String?
   harvest_date      DateTime
+=======
+model Product_item {
+  id                    String          @id @default(cuid())
+  productcatalog_id     String
+  producer_id           String
+  distributor_id        String
+  seller_id             String
+  description           String
+  photo_url             String
+  price_producers       Int
+  price_distributor     Int
+  price_seller          Int
+  harvest_date          DateTime?
+  harvest_place         String?
+>>>>>>> Stashed changes
 
   productitems      Product_items   @relation(fields: [productitem_id], references: [id])
   producers         Users           @relation("productProducers", fields: [producer_id], references: [id])
   distributors      Users           @relation("productDistributors", fields: [distributor_id], references: [id])
   sellers           Users           @relation("productSellers", fields: [seller_id], references: [id])
 
+<<<<<<< Updated upstream
   store_prices      Store_prices[]
+=======
+  products_catalog          Product_catalog   @relation(fields: [productcatalog_id], references: [id])
+  producers                 Users             @relation("productProducers", fields: [producer_id], references: [id])
+  distributors              Users             @relation("productDistributors", fields: [distributor_id], references: [id])
+  sellers                   Users             @relation("productSellers", fields: [seller_id], references: [id])
+
+  sell_prices               Sell_prices[]
+>>>>>>> Stashed changes
 }
 
 
