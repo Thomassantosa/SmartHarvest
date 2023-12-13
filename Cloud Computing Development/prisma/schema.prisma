@@ -30,16 +30,13 @@ model Users {
   name              String
   password          String
   type              String
-  photo_url         String?
+  photo_url           String?
   refreshToken      String?
 
   producers         Product_item[]      @relation("productProducers")
   distributors      Product_item[]      @relation("productDistributors")
   sellers           Product_item[]      @relation("productSellers")
-
-  //
 }
-
 
 
 model Product_item {
@@ -50,29 +47,17 @@ model Product_item {
   seller_id             String
   description           String
   photo_url             String
+  harvest_date          DateTime?
+  harvest_place         String?
   price_producers       Int
   price_distributor     Int
   price_seller          Int
-  harvest_date          DateTime?
-  harvest_place         String?
 
 
   products_catalog          Product_catalog   @relation(fields: [productcatalog_id], references: [id])
   producers                 Users             @relation("productProducers", fields: [producer_id], references: [id])
   distributors              Users             @relation("productDistributors", fields: [distributor_id], references: [id])
   sellers                   Users             @relation("productSellers", fields: [seller_id], references: [id])
-
-  sell_prices               Sell_prices[]
-
 }
 
 
-model Sell_prices{
-  id                String          @id @default(cuid())
-  product_id        String
-  createdAt         DateTime        @default(now())
-  updatedAt         DateTime        @updatedAt
-  store_price       Int
-
-  products          Product_item        @relation(fields: [product_id], references: [id])
-}
