@@ -6,6 +6,12 @@ const verifyToken = require('../middleware/verify.token')
 
 const router = express.Router()
 
+router.get('/', (req, res) => {
+  res.send({
+    message: 'This is API for SmartHarvest Application Made By Team CH2-PS143',
+  })
+})
+
 router.get('/users', verifyToken, async (req, res) => {
   const users = await getAllUsers()
 

@@ -21,7 +21,7 @@ model Product_catalog {
   prediction_price  Int
 
   //foreign key
-  products          Product_item[]
+  product_item      Product_item[]
 }
 
 model Users {
@@ -30,7 +30,7 @@ model Users {
   name              String
   password          String
   type              String
-  photo_url           String?
+  photo_url         String?
   refreshToken      String?
 
   producers         Product_item[]      @relation("productProducers")
@@ -49,9 +49,11 @@ model Product_item {
   photo_url             String
   harvest_date          DateTime?
   harvest_place         String?
-  price_producers       Int
+  price_producer        Int
   price_distributor     Int
   price_seller          Int
+  status                String
+  sell_date             DateTime?
 
 
   products_catalog          Product_catalog   @relation(fields: [productcatalog_id], references: [id])
