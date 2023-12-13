@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 data class ProductCatalogResponse(
 
-	@field:SerializedName("productcatalog")
+	@field:SerializedName("productCatalog")
 	val productcatalog: List<ProductcatalogItem>,
 
 	@field:SerializedName("message")
@@ -16,7 +16,7 @@ data class ProductCatalogResponse(
 @Parcelize
 data class ProductcatalogItem(
 
-	@field:SerializedName("photoUrl")
+	@field:SerializedName("photo_url")
 	val photoUrl: String,
 
 	@field:SerializedName("national_price")

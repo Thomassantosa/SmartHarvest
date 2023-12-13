@@ -25,7 +25,7 @@ interface ApiService {
     ): Call<LoginResponse>
 
     @GET("products-catalog")
-    suspend fun getAllProductCatalog(
+        fun getAllProductCatalog(
         @Header("Authorization") token: String
     ): Call<ProductCatalogResponse>
 }

@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.example.smartharvest.data.api.ApiConfig
 import com.example.smartharvest.data.repository.Repository
 import com.example.smartharvest.data.responses.ErrorResponse
+import com.example.smartharvest.data.responses.LoginResult
 import com.example.smartharvest.data.responses.ProductCatalogResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,7 +25,11 @@ class HomeViewModel(private val repository: Repository) : ViewModel() {
     private val _listProductCatalog = MutableLiveData<ProductCatalogResponse>()
     val listProductCatalog: LiveData<ProductCatalogResponse> = _listProductCatalog
 
-    suspend fun getProductCatalog(token : String) {
+    fun getUser(): LiveData<LoginResult> {
+        return repository.getUser()
+    }
+
+    fun getProductCatalog(token : String) {
         _isLoading.value = true
         val apiService = ApiConfig().getApiService()
         val productCatalogResponses = apiService.getAllProductCatalog("Bearer $token")

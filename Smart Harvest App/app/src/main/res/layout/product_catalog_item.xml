@@ -74,7 +74,7 @@
                 android:id="@+id/national_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="0dp"
                 android:text="@string/product_catalog_national_price_value"
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/purple_500"
@@ -101,7 +101,7 @@
                 android:id="@+id/prediction_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="0dp"
                 android:text="@string/product_catalog_prediction_price_value"
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/purple_500"
@@ -110,9 +110,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="4dp"
                 android:text="@string/product_catalog_prediction_date"
-                android:textAppearance="?attr/textAppearanceBody1"
+                android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"
                 />
         </LinearLayout>

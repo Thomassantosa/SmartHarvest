@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        supportActionBar?.hide()
+//        supportActionBar?.hide()
 
         val navView: BottomNavigationView = binding.navView
 

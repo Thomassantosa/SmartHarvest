@@ -2,10 +2,12 @@ package com.example.smartharvest.adapter
 
 import android.app.Activity
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +15,8 @@ import com.bumptech.glide.Glide
 import com.example.smartharvest.data.responses.ProductcatalogItem
 import com.example.smartharvest.databinding.ProductCatalogItemBinding
 import com.example.smartharvest.ui.detailproductcatalog.ProductCatalogDetailActivity
+import java.text.NumberFormat
+import java.util.Locale
 
 class ProductCatalogListAdapter(private val listStory: List<ProductcatalogItem>) : RecyclerView.Adapter<ProductCatalogListAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(
@@ -47,8 +51,16 @@ class ProductCatalogListAdapter(private val listStory: List<ProductcatalogItem>)
                 .into(imgPhoto)
             tvName.text = productCatalogItem.name
             tvCategory.text = productCatalogItem.category
-            tvNationalPrice.text = productCatalogItem.nationalPrice.toString()
-            tvPredictionPrice.text = productCatalogItem.predictionPrice.toString()
+
+            val indonesianLocale = Locale("in", "ID")
+            val numberFormat = NumberFormat.getInstance(indonesianLocale)
+            val formattedNationalPrice = numberFormat.format(productCatalogItem.nationalPrice)
+            val formattedPredictionPrice = numberFormat.format(productCatalogItem.predictionPrice)
+
+            tvNationalPrice.text = "IDR " + formattedNationalPrice.toString()
+            tvPredictionPrice.text = "IDR " + formattedPredictionPrice.toString()
+
+            Log.d("Smart Harvest", productCatalogItem.photoUrl)
 
             itemView.setOnClickListener {
 
@@ -62,9 +74,10 @@ class ProductCatalogListAdapter(private val listStory: List<ProductcatalogItem>)
                         Pair(tvPredictionPrice, "predictionPrice")
                     )
 
-                val intent = Intent(itemView.context, ProductCatalogDetailActivity::class.java)
-                intent.putExtra("ProductCatalog", productCatalogItem)
-                itemView.context.startActivity(intent, optionsCompat.toBundle())
+//                Toast.makeText(context, "TestC", Toast.LENGTH_LONG).show()
+//                val intent = Intent(itemView.context, ProductCatalogDetailActivity::class.java)
+//                intent.putExtra("ProductCatalog", productCatalogItem)
+//                itemView.context.startActivity(intent, optionsCompat.toBundle())
             }
         }
     }
