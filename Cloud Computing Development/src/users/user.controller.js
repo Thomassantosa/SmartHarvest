@@ -1,7 +1,7 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const { getAllUsers, Register, Login, getUserByEmail, editUserByEmail } = require('./user.service')
+const { getAllUsers, Register, Login, getUserByEmail, editUserByEmail, getUserById } = require('./user.service')
 const verifyToken = require('../middleware/verify.token')
 
 const router = express.Router()
@@ -10,6 +10,14 @@ router.get('/', (req, res) => {
   res.send({
     message: 'This is API for SmartHarvest Application Made By Team CH2-PS143',
   })
+})
+
+router.get('/login', (req, res) => {
+  res.sendStatus(405)
+})
+
+router.get('/register', (req, res) => {
+  res.sendStatus(405)
 })
 
 router.get('/users', verifyToken, async (req, res) => {
@@ -35,7 +43,7 @@ router.post('/register', async (req, res) => {
     })
   } catch (error) {
     res.status(400).send({
-      message: 'Some fields missing!',
+      message: 'Error! Email Must Be Unique or Maybe Some Fields Missing.',
     })
   }
 })
@@ -47,7 +55,7 @@ router.post('/login', async (req, res) => {
 
     const match = await bcrypt.compare(req.body.password, user[0].password)
 
-    if (!match) return res.status(400).send({ message: 'Wrong Password!' })
+    if (!match) return res.status(400).send({ message: 'Wrong Password!' }) //validasi password
 
     const userId = user[0].id
     const name = user[0].name
@@ -55,7 +63,7 @@ router.post('/login', async (req, res) => {
     const type = user[0].type
 
     const accessToken = jwt.sign({ userId, name, email }, process.env.ACCESS_TOKEN_SECRET, {
-      expiresIn: '900s',
+      expiresIn: '1800s',
     })
 
     res.send({
@@ -75,7 +83,7 @@ router.post('/login', async (req, res) => {
   }
 })
 
-router.get('/user/:email', async (req, res) => {
+router.get('/user/:email', verifyToken, async (req, res) => {
   try {
     const userEmail = req.params.email
     const user = await getUserByEmail(userEmail)
@@ -83,12 +91,25 @@ router.get('/user/:email', async (req, res) => {
     res.send(user)
   } catch (error) {
     res.status(404).send({
-      message: 'email not found',
+      message: 'Email Not Found!',
     })
   }
 })
 
-router.put('/user/:email', async (req, res) => {
+router.get('/user-id/:id', verifyToken, async (req, res) => {
+  try {
+    const userId = req.params.id
+    const user = await getUserById(userId)
+
+    res.send(user)
+  } catch (error) {
+    res.status(404).send({
+      message: 'User Not Found!',
+    })
+  }
+})
+
+router.put('/user/:email', verifyToken, async (req, res) => {
   try {
     const userEmail = req.params.email
     const userData = req.body
@@ -112,10 +133,9 @@ router.put('/user/:email', async (req, res) => {
       },
     })
   } catch (error) {
-    console.log(error)
-    // res.status(400).send({
-    //   message: "You Can't Change Email and Password",
-    // })
+    res.status(400).send({
+      message: "You Can't Change Email and Password",
+    })
   }
 })
 

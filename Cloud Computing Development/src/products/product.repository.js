@@ -59,14 +59,21 @@ const editProduct = async (productId, productData) => {
   return product
 }
 
-// const findProductByName = async (productName) => {
-//   const product = await prisma.product_catalog.findUnique({
-//     where: {
-//       id: productName,
-//     },
-//   })
+const existingCategory = async (productCategory) => {
+  const category = await prisma.product_catalog.findFirst({
+    where: {
+      category: productCategory,
+    },
+  })
 
-//   return product
-// } //not runing
+  return category
+}
 
-module.exports = { findAllProducts, findProductByCategory, findProductById, insertProductData, editProduct }
+module.exports = {
+  findAllProducts,
+  findProductByCategory,
+  findProductById,
+  insertProductData,
+  editProduct,
+  existingCategory,
+}

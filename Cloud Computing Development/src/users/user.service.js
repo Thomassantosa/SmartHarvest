@@ -1,23 +1,24 @@
-const dotenv = require('dotenv')
-const { findAllUsers, insertUser, findUserByEmail, findUserWithEmail, editUser } = require('./user.repository')
+const {
+  findAllUsers,
+  insertUser,
+  findUserByEmail,
+  findUserWithEmail,
+  editUser,
+  findUserById,
+} = require('./user.repository')
 
-dotenv.config()
-
-//menampilkan semua users
 const getAllUsers = async (req, res) => {
   const users = await findAllUsers()
 
   return users
 }
 
-//API untuk pendaftaran
 const Register = async (newUserData) => {
   const user = await insertUser(newUserData)
 
   return user
 }
 
-//API untuk login
 const Login = async (userData) => {
   const user = await findUserByEmail(userData)
 
@@ -34,6 +35,16 @@ const getUserByEmail = async (userEmail) => {
   return user
 }
 
+const getUserById = async (userId) => {
+  const user = await findUserById(userId)
+
+  if (!user) {
+    throw Error('User Not Found!')
+  }
+
+  return user
+}
+
 const editUserByEmail = async (userEmail, userData) => {
   await getUserByEmail(userEmail)
 
@@ -42,4 +53,4 @@ const editUserByEmail = async (userEmail, userData) => {
   return user
 }
 
-module.exports = { getAllUsers, Register, Login, getUserByEmail, editUserByEmail }
+module.exports = { getAllUsers, Register, Login, getUserByEmail, editUserByEmail, getUserById }

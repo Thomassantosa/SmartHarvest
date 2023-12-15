@@ -10,7 +10,7 @@ const {
 
 const rProduct = express.Router()
 
-rProduct.get('/products-catalog', async (req, res) => {
+rProduct.get('/products-catalog', verifyToken, async (req, res) => {
   const products = await getAllProducts()
 
   res.send({
@@ -29,9 +29,8 @@ rProduct.get('/product-category/:category', async (req, res) => {
       productCatalog: product,
     })
   } catch (error) {
-    // console.log(error)
     res.status(404).send({
-      message: 'Product Category not Found!',
+      message: error.message,
     })
   }
 })
@@ -46,7 +45,6 @@ rProduct.get('/product-id/:id', async (req, res) => {
       productCatalog: product,
     })
   } catch (error) {
-    // console.log(error)
     res.status(404).send({
       message: 'Product not Found!',
     })
@@ -63,7 +61,6 @@ rProduct.post('/product-catalog', async (req, res) => {
       body: product,
     })
   } catch (error) {
-    // console.log(error)
     res.status(400).send({
       message: 'Some fields missing!',
     })
@@ -72,7 +69,6 @@ rProduct.post('/product-catalog', async (req, res) => {
 
 rProduct.put('/product-catalog/:id', async (req, res) => {
   try {
-    // console.log('apakah ini di exekusi')
     const productId = req.params.id
     const productData = req.body
 
@@ -91,26 +87,10 @@ rProduct.put('/product-catalog/:id', async (req, res) => {
       },
     })
   } catch (error) {
-    // console.log(error)
-    res.sendStatus(404)
+    res.status(404).send({
+      message: 'Product Not Found!',
+    })
   }
 })
-
-// rProduct.get('/product-req-body', async (req, res) => {
-//   try {
-//     const productName = req.body
-//     const product = await getProductByName(productName)
-
-//     res.send({
-//       message: 'Success',
-//       productCatalog: product,
-//     })
-//   } catch (error) {
-//     console.log(error)
-//     // res.status(404).send({
-//     //   message: 'Product not Found!',
-//     // })
-//   }
-// }) //not working well
 
 module.exports = rProduct
