@@ -13,7 +13,7 @@ class ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://34.128.80.131:2000/")
+            .baseUrl("https://smartharvest-api-yz25gjdqxq-de.a.run.app/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

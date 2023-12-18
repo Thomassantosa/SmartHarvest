@@ -58,6 +58,7 @@ dependencies {
     implementation("androidx.annotation:annotation:1.7.0")
 
     implementation("androidx.activity:activity-ktx:1.8.1")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     // Testing
     testImplementation("junit:junit:4.13.2")
