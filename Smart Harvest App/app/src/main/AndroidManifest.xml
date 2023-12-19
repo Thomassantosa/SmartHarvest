@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="false"/>
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +19,15 @@
         android:theme="@style/Theme.SmartHarvest"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.productoverview.ProductOverviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.producthistory.ProductHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.detailproductcatalog.ProductCatalogDetailActivity"
             android:exported="false" />

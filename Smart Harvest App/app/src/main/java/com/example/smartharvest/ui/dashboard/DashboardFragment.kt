@@ -1,5 +1,6 @@
 package com.example.smartharvest.ui.dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.smartharvest.databinding.FragmentDashboardBinding
 import com.example.smartharvest.helper.ViewModelFactory
+import com.example.smartharvest.ui.producthistory.ProductHistoryActivity
+import com.example.smartharvest.ui.productoverview.ProductOverviewActivity
+import com.example.smartharvest.ui.profile.ProfileActivity
 
 class DashboardFragment : Fragment() {
 
@@ -50,15 +54,16 @@ class DashboardFragment : Fragment() {
 
     private fun setupAction() {
         binding.cardProfile.setOnClickListener {
-            Toast.makeText(requireActivity(), "Test A", Toast.LENGTH_SHORT).show()
-//            val intent = Intent(context, ProfileActivity::class.java)
-//            startActivity(intent)
+            val intent = Intent(context, ProfileActivity::class.java)
+            startActivity(intent)
         }
         binding.cardProductOverview.setOnClickListener {
-            Toast.makeText(requireActivity(), "Test B", Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, ProductOverviewActivity::class.java)
+            startActivity(intent)
         }
         binding.cardProductHistory.setOnClickListener {
-            Toast.makeText(requireActivity(), "Test C", Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, ProductHistoryActivity::class.java)
+            startActivity(intent)
         }
     }
 
