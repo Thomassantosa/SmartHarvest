@@ -7,10 +7,17 @@ const {
   findAllProductItemByProducerId,
   findAllProductItemByDistributorId,
   findAllProductItemBySellerId,
+  findAllProductItemPrices,
 } = require('./productitem.repository')
 
 const getAllProductItems = async () => {
   const products = await findAllProductItems()
+
+  return products
+}
+
+const getAllProductItemPrices = async () => {
+  const products = await findAllProductItemPrices()
 
   return products
 }
@@ -71,4 +78,5 @@ module.exports = {
   getAllProductItemByProducerId,
   getAllProductItemByDistributorId,
   getAllProductItemBySellerId,
+  getAllProductItemPrices,
 }

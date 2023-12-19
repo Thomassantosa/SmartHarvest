@@ -8,12 +8,19 @@ const {
   getAllProductItemByProducerId,
   getAllProductItemByDistributorId,
   getAllProductItemBySellerId,
+  getAllProductItemPrices,
 } = require('./productitem.service')
 const { getUserById } = require('../users/user.service')
 const verifyToken = require('../middleware/verify.token')
 
 rProductItem.get('/products-item', verifyToken, async (req, res) => {
   const products = await getAllProductItems()
+
+  res.send(products)
+})
+
+rProductItem.get('/products-item-price', verifyToken, async (req, res) => {
+  const products = await getAllProductItemPrices()
 
   res.send(products)
 })

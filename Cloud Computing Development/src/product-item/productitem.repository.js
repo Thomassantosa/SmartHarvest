@@ -8,6 +8,20 @@ const findAllProductItems = async () => {
   return products
 }
 
+const findAllProductItemPrices = async () => {
+  const products = prisma.product_item.findMany({
+    select: {
+      name: true,
+      category: true,
+      price_producer: true,
+      price_distributor: true,
+      price_seller: true,
+    },
+  })
+
+  return products
+}
+
 const findProductItemById = async (productId) => {
   const product = prisma.product_item.findUnique({
     where: {
@@ -138,4 +152,5 @@ module.exports = {
   findAllProductItemByProducerId,
   findAllProductItemByDistributorId,
   findAllProductItemBySellerId,
+  findAllProductItemPrices,
 }
