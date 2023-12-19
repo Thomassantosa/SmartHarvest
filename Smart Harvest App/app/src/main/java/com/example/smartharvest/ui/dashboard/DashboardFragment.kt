@@ -40,6 +40,11 @@ class DashboardFragment : Fragment() {
         setupView()
         setupAction()
 
+        binding.cardProfile.setOnClickListener(){
+            val intent = Intent(requireContext(), ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
         return root
     }
 
