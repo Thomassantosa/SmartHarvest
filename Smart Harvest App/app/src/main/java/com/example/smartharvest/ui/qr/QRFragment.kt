@@ -93,7 +93,6 @@ class QRFragment : Fragment() {
 
 
     override fun onDestroy() {
-        // Pastikan untuk melepaskan sumber daya CodeScanner saat fragment di-destroy
         codeScanner.releaseResources()
         super.onDestroy()
     }
