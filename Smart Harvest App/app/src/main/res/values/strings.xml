@@ -39,4 +39,10 @@
     <string name="testA">Customer</string>
     <string name="testB">Non Customer</string>
 
+    <!-- Strings for product_catalog_item.xml  -->
+    <string name="text_profile">Your Profile</string>
+    <string name="text_product_overview">Product Overview</string>
+    <string name="text_product_history">Product History</string>
+
+    <string name="logout">Logout</string>
 </resources>
