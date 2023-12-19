@@ -1,0 +1,1 @@
+GET  http://127.0.0.1:5000/forecast?input_sequence=1,2,3,4,5
