@@ -45,4 +45,16 @@
     <string name="text_product_history">Product History</string>
 
     <string name="logout">Logout</string>
+
+    <string name="user_history">User Name</string>
+
+    <!-- Strings for product_history_item.xml  -->
+    <string name="text_product_name">Product Name</string>
+    <string name="text_producer">Producer :</string>
+    <string name="text_producer_name">Producer A</string>
+    <string name="text_distributor">Distributor :</string>
+    <string name="text_distributor_name">Distributor A</string>
+    <string name="text_seller">Seller :</string>
+    <string name="text_seller_name">Seller A</string>
+    <string name="text_status">Status</string>
 </resources>
