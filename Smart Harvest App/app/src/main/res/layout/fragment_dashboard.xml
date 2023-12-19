@@ -32,7 +32,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    tools:src="@tools:sample/backgrounds/scenic"
+                    android:background="@drawable/default_cat1"
                     android:contentDescription="@string/product_catalog_image"
                     />
 
@@ -66,7 +66,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    tools:src="@tools:sample/backgrounds/scenic"
+                    android:background="@drawable/default_cat1"
                     android:contentDescription="@string/product_catalog_image"
                     />
 
@@ -100,7 +100,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:scaleType="centerCrop"
-                    tools:src="@tools:sample/backgrounds/scenic"
+                    android:background="@drawable/default_cat1"
                     android:contentDescription="@string/product_catalog_image"
                     />
 

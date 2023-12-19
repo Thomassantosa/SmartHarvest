@@ -57,4 +57,22 @@
     <string name="text_seller">Seller :</string>
     <string name="text_seller_name">Seller A</string>
     <string name="text_status">Status</string>
+
+    <!-- Strings for activity_product_item_detail.xml  -->
+    <string name="item_name">Item Name</string>
+    <string name="item_price">IDR 15.000</string>
+    <string name="item_national_price">Avg. National Price</string>
+    <string name="item_national_price_value">IDR 15.000</string>
+    <string name="item_prediction_price">Prediction Price</string>
+    <string name="item_prediction_price_value">IDR 15.000</string>
+    <string name="item_producer">Producer</string>
+    <string name="item_producer_value">Producer A</string>
+    <string name="item_harvest_date">Harvest Date</string>
+    <string name="item_harvest_date_value">2023-12-31</string>
+    <string name="item_distributor">Distributor</string>
+    <string name="item_distributor_value">Distributor A</string>
+    <string name="item_seller">Seller</string>
+    <string name="item_seller_value">Seller A</string>
+    <string name="item_desc">Description</string>
+    <string name="item_desc_value">Description, Eros sociosqu ex dolor aliquet condimentum pharetra lobortis suscipit metus ornare.</string>
 </resources>
