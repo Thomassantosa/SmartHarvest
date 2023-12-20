@@ -41,7 +41,7 @@
 
     <!-- Strings for product_catalog_item.xml  -->
     <string name="text_profile">Your Profile</string>
-    <string name="text_product_overview">Product Overview</string>
+    <string name="text_product_management">Product Management</string>
     <string name="text_product_history">Product History</string>
 
     <string name="logout">Logout</string>

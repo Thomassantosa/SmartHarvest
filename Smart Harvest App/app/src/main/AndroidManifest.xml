@@ -23,7 +23,7 @@
             android:name=".ui.productitemdetail.ProductItemDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.productoverview.ProductOverviewActivity"
+            android:name=".ui.productmanagement.ProductManagementActivity"
             android:exported="false" />
         <activity
             android:name=".ui.producthistory.ProductHistoryActivity"
