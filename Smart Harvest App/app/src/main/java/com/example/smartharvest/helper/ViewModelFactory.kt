@@ -10,6 +10,7 @@ import com.example.smartharvest.ui.home.HomeViewModel
 import com.example.smartharvest.ui.login.LoginViewModel
 import com.example.smartharvest.ui.main.MainViewModel
 import com.example.smartharvest.ui.producthistory.ProductHistoryViewModel
+import com.example.smartharvest.ui.profile.ProfileViewModel
 import com.example.smartharvest.ui.qr.QRViewModel
 import com.example.smartharvest.ui.register.RegisterViewModel
 
@@ -29,6 +30,9 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             }
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(repository) as T
             }
 //            modelClass.isAssignableFrom(QRViewModel::class.java) -> {
 //                QRViewModel(repository) as T
