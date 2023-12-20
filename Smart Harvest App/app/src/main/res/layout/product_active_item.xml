@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="5dp"
-                    app:cardBackgroundColor="@color/lightGrey">
+                    app:cardBackgroundColor="@color/lightGreen">
 
                     <TextView
                         android:id="@+id/text_status"

@@ -11,6 +11,7 @@ import com.example.smartharvest.ui.login.LoginViewModel
 import com.example.smartharvest.ui.main.MainViewModel
 import com.example.smartharvest.ui.producthistory.ProductHistoryViewModel
 import com.example.smartharvest.ui.profile.ProfileViewModel
+import com.example.smartharvest.ui.productmanagement.ProductManagementViewModel
 import com.example.smartharvest.ui.qr.QRViewModel
 import com.example.smartharvest.ui.register.RegisterViewModel
 
@@ -42,6 +43,9 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             }
             modelClass.isAssignableFrom(ProductHistoryViewModel::class.java) -> {
                 ProductHistoryViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ProductManagementViewModel::class.java) -> {
+                ProductManagementViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

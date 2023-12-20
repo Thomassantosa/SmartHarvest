@@ -1,4 +1,4 @@
-package com.example.smartharvest.ui.producthistory
+package com.example.smartharvest.ui.productmanagement
 
 import android.content.ContentValues
 import android.util.Log
@@ -9,13 +9,12 @@ import com.example.smartharvest.data.api.ApiConfig
 import com.example.smartharvest.data.repository.Repository
 import com.example.smartharvest.data.responses.ErrorResponse
 import com.example.smartharvest.data.responses.LoginResult
-import com.example.smartharvest.data.responses.ProductCatalogResponse
 import com.example.smartharvest.data.responses.ProductItemResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProductHistoryViewModel(private val repository: Repository) : ViewModel() {
+class ProductManagementViewModel(private val repository: Repository) : ViewModel() {
 
     private val _errorResponse = MutableLiveData<ErrorResponse>()
     val errorResponse: LiveData<ErrorResponse> = _errorResponse
@@ -29,8 +28,7 @@ class ProductHistoryViewModel(private val repository: Repository) : ViewModel() 
     fun getUser(): LiveData<LoginResult> {
         return repository.getUser()
     }
-
-    fun getProductHistoryProducer(id : String) {
+    fun getProductActiveProducer(id : String) {
         _isLoading.value = true
         val apiService = ApiConfig().getApiService()
         val productItemResponses = apiService.getProductItemProducer(id)
@@ -46,7 +44,7 @@ class ProductHistoryViewModel(private val repository: Repository) : ViewModel() 
                     if (responseBody != null) {
 
                         // Filter data
-                        val filteredData = responseBody.data.filter { it.status != "In Producer" }
+                        val filteredData = responseBody.data.filter { it.status == "In Producer" }
                         _listProductItem.value = ProductItemResponse(filteredData, responseBody.message)
 //                        _listProductItem.value = response.body()
                     }
@@ -61,7 +59,7 @@ class ProductHistoryViewModel(private val repository: Repository) : ViewModel() 
         })
     }
 
-    fun getProductHistoryDistributor(id : String) {
+    fun getProductActiveDistributor(id : String) {
         _isLoading.value = true
         val apiService = ApiConfig().getApiService()
         val productItemResponses = apiService.getProductItemDistributor(id)
@@ -77,7 +75,7 @@ class ProductHistoryViewModel(private val repository: Repository) : ViewModel() 
                     if (responseBody != null) {
 
                         // Filter data
-                        val filteredData = responseBody.data.filter { it.status != "In Distributor" }
+                        val filteredData = responseBody.data.filter { it.status == "In Distributor" }
                         _listProductItem.value = ProductItemResponse(filteredData, responseBody.message)
 //                        _listProductItem.value = response.body()
                     }
@@ -92,7 +90,7 @@ class ProductHistoryViewModel(private val repository: Repository) : ViewModel() 
         })
     }
 
-    fun getProductHistorySeller(id : String) {
+    fun getProductActiveSeller(id : String) {
         _isLoading.value = true
         val apiService = ApiConfig().getApiService()
         val productItemResponses = apiService.getProductItemSeller(id)
@@ -108,7 +106,7 @@ class ProductHistoryViewModel(private val repository: Repository) : ViewModel() 
                     if (responseBody != null) {
 
                         // Filter data
-                        val filteredData = responseBody.data.filter { it.status != "In Seller" }
+                        val filteredData = responseBody.data.filter { it.status == "In Seller" }
                         _listProductItem.value = ProductItemResponse(filteredData, responseBody.message)
 //                        _listProductItem.value = response.body()
                     }

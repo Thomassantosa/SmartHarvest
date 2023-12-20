@@ -32,17 +32,17 @@ interface ApiService {
     ): Call<ProductCatalogResponse>
 
     @GET("products-item-producer/{id}")
-    fun getProductHistoryProducer(
+    fun getProductItemProducer(
         @Path("id") type: String
     ): Call<ProductItemResponse>
 
     @GET("products-item-distributor/{id}")
-    fun getProductHistoryDistributor(
+    fun getProductItemDistributor(
         @Path("id") type: String
     ): Call<ProductItemResponse>
 
     @GET("products-item-seller/{id}")
-    fun getProductHistorySeller(
+    fun getProductItemSeller(
         @Path("id") type: String
     ): Call<ProductItemResponse>
 }

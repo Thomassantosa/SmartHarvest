@@ -5,13 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.smartharvest.databinding.FragmentDashboardBinding
 import com.example.smartharvest.helper.ViewModelFactory
 import com.example.smartharvest.ui.producthistory.ProductHistoryActivity
-import com.example.smartharvest.ui.productoverview.ProductOverviewActivity
+import com.example.smartharvest.ui.productmanagement.ProductManagementActivity
 import com.example.smartharvest.ui.profile.ProfileActivity
 
 class DashboardFragment : Fragment() {
@@ -58,7 +57,7 @@ class DashboardFragment : Fragment() {
             startActivity(intent)
         }
         binding.cardProductOverview.setOnClickListener {
-            val intent = Intent(context, ProductOverviewActivity::class.java)
+            val intent = Intent(context, ProductManagementActivity::class.java)
             startActivity(intent)
         }
         binding.cardProductHistory.setOnClickListener {
