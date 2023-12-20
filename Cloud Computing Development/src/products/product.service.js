@@ -4,6 +4,7 @@ const {
   findProductById,
   insertProductData,
   editProduct,
+  existingCategory,
 } = require('./product.repository')
 
 const getAllProducts = async () => {
@@ -13,11 +14,13 @@ const getAllProducts = async () => {
 }
 
 const getProductByCategory = async (productCategory) => {
-  const product = await findProductByCategory(productCategory)
+  const category = await existingCategory(productCategory)
 
-  if (!product) {
-    throw Error()
+  if (!category) {
+    throw Error('Category Not Found!')
   }
+
+  const product = await findProductByCategory(productCategory)
 
   return product
 }
@@ -45,15 +48,5 @@ const editProductById = async (productId, productData) => {
 
   return product
 }
-
-// const getProductByName = async (productName) => {
-//   const product = await findProductByName(productName)
-
-//   if (!product) {
-//     throw Error()
-//   }
-
-//   return product
-// } //not working well
 
 module.exports = { getAllProducts, getProductByCategory, getProductById, createProduct, editProductById }

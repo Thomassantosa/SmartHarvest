@@ -44,6 +44,16 @@ const findUserWithEmail = async (userEmail) => {
   return user
 }
 
+const findUserById = async (userId) => {
+  const user = await prisma.users.findUnique({
+    where: {
+      id: userId,
+    },
+  })
+
+  return user
+}
+
 const editUser = async (userEmail, userData) => {
   // const salt = await bcrypt.genSalt()
   // const hashPassword = await bcrypt.hash(userData.password, salt)
@@ -64,4 +74,4 @@ const editUser = async (userEmail, userData) => {
   return user
 }
 
-module.exports = { findAllUsers, findUserByEmail, insertUser, findUserWithEmail, editUser }
+module.exports = { findAllUsers, findUserByEmail, insertUser, findUserWithEmail, editUser, findUserById }
