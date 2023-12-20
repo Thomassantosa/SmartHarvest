@@ -71,7 +71,6 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.password.text.toString()
             val confirmPassword = binding.confirmpassword.text.toString()
             val type = binding.typespinner.selectedItem.toString()
-//                "Customer" // TODO: Find how to get value from Spinner
 
             if (email.isEmpty()) {
                 Toast.makeText(this@RegisterActivity, "Email cannot be empty", Toast.LENGTH_SHORT).show()
