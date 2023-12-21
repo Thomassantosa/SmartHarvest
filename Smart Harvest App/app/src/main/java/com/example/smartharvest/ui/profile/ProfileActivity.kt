@@ -22,11 +22,6 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupViewModel()
-
-
-
-
-
     }
 
     private fun setupViewModel() {
@@ -44,8 +39,4 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
     }
-
-
-
-
 }

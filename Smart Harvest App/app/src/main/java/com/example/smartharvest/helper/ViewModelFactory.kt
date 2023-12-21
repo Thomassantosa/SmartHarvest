@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.smartharvest.data.repository.Repository
 import com.example.smartharvest.dependencyInjection.Injection
+import com.example.smartharvest.ui.addproductitem.AddProductItemViewModel
 import com.example.smartharvest.ui.dashboard.DashboardViewModel
 import com.example.smartharvest.ui.home.HomeViewModel
 import com.example.smartharvest.ui.login.LoginViewModel
@@ -46,6 +47,9 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             }
             modelClass.isAssignableFrom(ProductManagementViewModel::class.java) -> {
                 ProductManagementViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(AddProductItemViewModel::class.java) -> {
+                AddProductItemViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

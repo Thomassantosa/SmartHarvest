@@ -16,7 +16,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/profile"
+            android:src="@drawable/ic_baseline_account_circle_24"
             android:scaleType="centerCrop" />
     </androidx.cardview.widget.CardView>
 
@@ -24,7 +24,7 @@
         android:id="@+id/name_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Taufiq Arinta"
+        android:text="@string/item_name"
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="30sp"
@@ -34,11 +34,9 @@
         android:id="@+id/typeProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Customer"
+        android:text="@string/item_name"
         android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="18sp"
         android:layout_marginTop="360dp"/>
-
-
 </RelativeLayout>

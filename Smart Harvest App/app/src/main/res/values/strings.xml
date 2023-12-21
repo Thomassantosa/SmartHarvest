@@ -75,4 +75,13 @@
     <string name="item_seller_value">Seller A</string>
     <string name="item_desc">Description</string>
     <string name="item_desc_value">Description, Eros sociosqu ex dolor aliquet condimentum pharetra lobortis suscipit metus ornare.</string>
+
+    <!-- Strings for activity_add_product.xml  -->
+    <string name="add_title">Add New Product</string>
+    <string name="add_catalog">Choose Product</string>
+    <string name="add_desc">Description</string>
+    <string name="add_price">Price</string>
+    <string name="add_harvest_date">Harvest Date</string>
+    <string name="add_harvest_place">Harvest Place</string>
+    <string name="add_submit">Submit</string>
 </resources>

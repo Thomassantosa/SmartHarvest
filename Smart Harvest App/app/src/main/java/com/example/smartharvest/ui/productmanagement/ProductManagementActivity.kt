@@ -1,5 +1,6 @@
 package com.example.smartharvest.ui.productmanagement
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import com.example.smartharvest.adapter.ProductManagementListAdapter
 import com.example.smartharvest.data.responses.DataItem
 import com.example.smartharvest.databinding.ActivityProductManagementBinding
 import com.example.smartharvest.helper.ViewModelFactory
+import com.example.smartharvest.ui.addproductitem.AddProductItemActivity
 
 class ProductManagementActivity : AppCompatActivity() {
 
@@ -24,6 +26,7 @@ class ProductManagementActivity : AppCompatActivity() {
         binding.rvProductManagement.layoutManager = layoutManager
 
         setupViewModel()
+        setupAction()
     }
 
     private fun setupViewModel() {
@@ -68,5 +71,11 @@ class ProductManagementActivity : AppCompatActivity() {
 
     private fun setProductActiveData(productItems: List<DataItem>) {
         binding.rvProductManagement.adapter = ProductManagementListAdapter(productItems)
+    }
+
+    private fun setupAction() {
+        binding.fabAdd.setOnClickListener {
+            startActivity(Intent(this@ProductManagementActivity, AddProductItemActivity::class.java))
+        }
     }
 }
