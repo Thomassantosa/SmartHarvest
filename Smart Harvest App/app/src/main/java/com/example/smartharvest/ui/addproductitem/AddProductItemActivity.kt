@@ -1,6 +1,7 @@
 package com.example.smartharvest.ui.addproductitem
 
 import android.R
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.smartharvest.databinding.ActivityAddProductItemBinding
 import com.example.smartharvest.databinding.ActivityProductManagementBinding
 import com.example.smartharvest.helper.ViewModelFactory
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class AddProductItemActivity : AppCompatActivity() {
 
@@ -32,8 +36,33 @@ class AddProductItemActivity : AppCompatActivity() {
 
         spinner = binding.productCatalogSpinner
 
+
+        val myCalendar = Calendar.getInstance()
+        val datePicker = DatePickerDialog.OnDateSetListener{ view, year, month,
+                                                             dayofmonth->
+            myCalendar.set(Calendar.YEAR,year)
+            myCalendar.set(Calendar.MONTH,month)
+            myCalendar.set(Calendar.DAY_OF_MONTH,dayofmonth)
+            updateLable(myCalendar)
+        }
+
+        binding.addHarvestDate.setOnClickListener {
+            DatePickerDialog(this, datePicker, myCalendar.get(Calendar.YEAR),
+                myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH)).show()
+
+        }
+
+
+
         setupData()
         setupAction()
+    }
+
+    private fun updateLable(mycalendar: Calendar){
+        val myFormat = "dd-MM-yyyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.UK)
+        binding.addHarvestDate.setText(sdf.format(mycalendar.time))
     }
 
     private fun setupData() {

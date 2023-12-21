@@ -118,13 +118,14 @@
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 />
 
-<!--            <DatePicker-->
-<!--                android:id="@+id/add_harvest_date"-->
-<!--                android:layout_width="300dp"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:datePickerMode="calendar"-->
-<!--                android:layout_marginTop="5dp">-->
-<!--            </DatePicker>-->
+            <EditText
+                android:id="@+id/add_harvest_date"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:inputType="text"
+                android:background="@drawable/border"/>
 
             <Button
                 android:id="@+id/submit"
