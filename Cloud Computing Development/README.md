@@ -55,7 +55,7 @@ npm install
 
 4. Prepare the database, you can use XAMPP or other, after the database ready you can continue to the next step,
 
-5. Add new File name it `.env` and copy the text from `.env.development` in the root folder
+5. in the root folder, add New File name it `.env` and copy the configuration from `.env.development` file
 
    - Add your `DATABASE_URL`
    - If you not use my Mysql, change the datasource db provider in file `prisma/schema.prisma` adjust to your database
@@ -78,4 +78,4 @@ npx prisma db seed
 npm run startDev
 ```
 
-for API Documentation you can see [here](#)
+### For API Documentation you can see [here](#)
