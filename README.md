@@ -31,15 +31,16 @@ Fruits, veggies, meats – you name it, we track it. Forget fuzzy labels and sha
 <br/>
 
 ## SmartHarvestAPI Reference
-
-<br/>
-
-#### Authentications
+### Authentications
 |Endpoint              |Method               | Parameter          | Type     | Description                                   |
 |:---------------------|:--------------------| :------------------| :------- | :---------------------------------------------|
 | `/register`          |POST                 | `application/json` | `string` | This endpoint used for user register. Payload contains name, email, password, and type field, after you fill payload and send request to server, server will response "User Created" and data user. |
-| `/login`             |POST                 | `application/json` | `string` | This endpoint used for user login. Payload contains name and password field, after you fill payload and send request to server, server will response "Login Successful" and data contains accessToken. |
+| `/login`             |POST                 | `application/json` | `string` | This endpoint used for user login. Payload contains email and password field, after you fill payload and send request to server, server will response "Login Successful" and get loginResult contains accessToken. |
 
-
-
+### Users
+|Endpoint              |Method               | Parameter          | Type     | Description                                   |
+|:---------------------|:--------------------| :------------------| :------- | :---------------------------------------------|
+| `/users`             |GET                  | `application/json` | `string` | This endpoint used for get all user in database you have to add authentication using barier token to access this endpoint. |
+| `/user/${email}`     |GET                  | `application/json` | `string` | This endpoint used for get user by email |
+| `/user/${email}`     |PUT                  | `application/json` | `string` | This endpoint used for update data user by spesific email |
 
