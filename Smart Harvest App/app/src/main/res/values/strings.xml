@@ -84,4 +84,9 @@
     <string name="add_harvest_date">Harvest Date</string>
     <string name="add_harvest_place">Harvest Place</string>
     <string name="add_submit">Submit</string>
+
+    <string name="text_showqr">Show QR</string>
+    <string name="text_edit">Edit</string>
+
+    <string name="text_user_price">(user price)</string>
 </resources>

@@ -86,4 +86,7 @@ dependencies {
 
     // QR
     implementation ("com.github.yuriy-budiyev:code-scanner:2.3.0")
+    
+    // QR generator
+    implementation("com.google.zxing:zxing-parent:3.5.2")
 }

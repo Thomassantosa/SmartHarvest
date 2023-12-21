@@ -20,6 +20,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.showqr.ShowQrActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.productactivedetail.ProductActiveDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.addproductitem.AddProductItemActivity"
             android:exported="false" />
         <activity
