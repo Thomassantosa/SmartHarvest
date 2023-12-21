@@ -13,7 +13,6 @@ import com.example.smartharvest.ui.main.MainViewModel
 import com.example.smartharvest.ui.producthistory.ProductHistoryViewModel
 import com.example.smartharvest.ui.profile.ProfileViewModel
 import com.example.smartharvest.ui.productmanagement.ProductManagementViewModel
-import com.example.smartharvest.ui.qr.QRViewModel
 import com.example.smartharvest.ui.register.RegisterViewModel
 
 class ViewModelFactory(private val repository: Repository) : ViewModelProvider.NewInstanceFactory() {
