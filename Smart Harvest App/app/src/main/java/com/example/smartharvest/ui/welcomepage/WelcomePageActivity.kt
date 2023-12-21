@@ -32,7 +32,6 @@ class WelcomePageActivity : AppCompatActivity() {
         binding = ActivityWelcomePageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         setupView()
         setupAction()
 
