@@ -33,11 +33,11 @@ const getProductItemById = async (productId) => {
 }
 
 const createNewProductItem = async (newProductItemData) => {
-  const existingProduct = await existingProductCatalog(newProductItemData)
+  // const existingProduct = await existingProductCatalog(newProductItemData)
 
-  if (existingProduct) {
-    throw new Error(`Product with catalog ID ${newProductItemData.productcatalog_id} already exists!`)
-  }
+  // if (existingProduct) {
+  //   throw new Error(`Product with catalog ID ${newProductItemData.productcatalog_id} already exists!`)
+  // }
 
   const product = await insertProductItem(newProductItemData)
 
