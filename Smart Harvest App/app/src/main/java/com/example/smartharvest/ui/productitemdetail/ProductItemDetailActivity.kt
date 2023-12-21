@@ -25,14 +25,33 @@ class ProductItemDetailActivity : AppCompatActivity() {
 
     private fun setupData() {
         val productItem = intent.getParcelableExtra<DataItem>("ProductItem") as DataItem
-        Glide.with(applicationContext)
-            .load(productItem.photoUrl)
-            .into(binding.imgProductDetail)
+        if (!productItem.photoUrl.isNullOrEmpty()){
+            Glide.with(applicationContext)
+                .load(productItem.photoUrl)
+                .into(binding.imgProductDetail)
+        }
 
         // Number format
         val indonesianLocale = Locale("in", "ID")
         val numberFormat = NumberFormat.getInstance(indonesianLocale)
-        val formattedItemPrice = numberFormat.format(productItem.priceSeller)
+
+        if (productItem.priceSeller.toString() != "null") {
+            binding.textUserPrice.text = "(seller price)"
+            val formattedItemPrice = numberFormat.format(productItem.priceSeller)
+            binding.textItemPrice.text = "IDR " + formattedItemPrice.toString()
+        } else if (productItem.priceDistributor.toString() != "null") {
+            binding.textUserPrice.text = "(distributor price)"
+            val formattedItemPrice = numberFormat.format(productItem.priceDistributor)
+            binding.textItemPrice.text = "IDR " + formattedItemPrice.toString()
+        } else if (productItem.priceProducer.toString() != "null") {
+            binding.textUserPrice.text = "(seller price)"
+            val formattedItemPrice = numberFormat.format(productItem.priceProducer)
+            binding.textItemPrice.text = "IDR " + formattedItemPrice.toString()
+        } else {
+            binding.textItemPrice.text = "No price data"
+            binding.textUserPrice.text = "(no price data)"
+        }
+
         val formattedNationalPrice = numberFormat.format(productItem.nationalPrice)
         val formattedPredictionPrice = numberFormat.format(productItem.predictionPrice)
 
@@ -51,7 +70,6 @@ class ProductItemDetailActivity : AppCompatActivity() {
 
         binding.apply {
             textItemName.text = productItem.name
-            textItemPrice.text = "IDR " + formattedItemPrice.toString()
             textNationalPrice.text = "IDR " + formattedNationalPrice.toString()
             textPredictionPrice.text = "IDR " + formattedPredictionPrice.toString()
             textProducer.text = productItem.producerName

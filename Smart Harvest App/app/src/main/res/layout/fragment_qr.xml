@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.qr.QRFragment">
 
     <com.budiyev.android.codescanner.CodeScannerView
         android:id="@+id/scanner"
         android:layout_width="wrap_content"
-        android:layout_height="550dp"
+        android:layout_height="450dp"
         app:autoFocusButtonVisible="true"/>
 
     <TextView
         android:id="@+id/outputQR"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/scanner"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
         android:text="Result will be here"
-        android:textAlignment="center"
-        android:textSize="10sp" />
+        android:textSize="20sp" />
 
-
-</RelativeLayout>
+    <Button
+        android:id="@+id/btn_showinfo"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_getinfo"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/lightGreen"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:cornerRadius="20dp"/>
+</LinearLayout>

@@ -37,9 +37,9 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repository) as T
             }
-//            modelClass.isAssignableFrom(QRViewModel::class.java) -> {
-//                QRViewModel(repository) as T
-//            }
+            modelClass.isAssignableFrom(QRViewModel::class.java) -> {
+                QRViewModel(repository) as T
+            }
             modelClass.isAssignableFrom(DashboardViewModel::class.java) -> {
                 DashboardViewModel(repository) as T
             }

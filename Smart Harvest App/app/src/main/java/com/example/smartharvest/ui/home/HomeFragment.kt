@@ -26,10 +26,6 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private lateinit var adapter: ProductCatalogListAdapter
     private lateinit var homeViewModel: HomeViewModel
-//    private val homeViewModel: HomeViewModel by viewModels { factory }
-//    private val viewModel: HomeViewModel by viewModels {
-//        ViewModelFactory(requireActivity().applicationContext)
-//    }
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -45,7 +41,6 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val layoutManager = LinearLayoutManager(root.context)
-//        val layoutManager = LinearLayoutManager(this)
         binding.productCatalogRecyclerview.layoutManager = layoutManager
 
         setupViewModel()

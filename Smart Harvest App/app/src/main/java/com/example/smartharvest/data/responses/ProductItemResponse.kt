@@ -13,6 +13,15 @@ data class ProductItemResponse(
 	val message: String? = null
 )
 
+data class OneProductItemResponse(
+
+	@field:SerializedName("data")
+	val data: DataItem,
+
+	@field:SerializedName("message")
+	val message: String? = null
+)
+
 @Parcelize
 data class DataItem(
 
