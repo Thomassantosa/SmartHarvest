@@ -1,13 +1,13 @@
 package com.example.smartharvest.ui.qr
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -17,10 +17,13 @@ import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import com.example.smartharvest.databinding.FragmentQrBinding
+import com.example.smartharvest.helper.ViewModelFactory
+import com.example.smartharvest.ui.productitemdetail.ProductItemDetailActivity
 
 class QRFragment : Fragment() {
 
     private var _binding: FragmentQrBinding? = null
+    private lateinit var qrViewModel: QRViewModel
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,14 +36,18 @@ class QRFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val qrViewModel =
-            ViewModelProvider(this).get(QRViewModel::class.java)
+        qrViewModel = ViewModelProvider(
+            this,
+            ViewModelFactory.getInstance(requireActivity().applicationContext)
+        )[QRViewModel::class.java]
 
         _binding = FragmentQrBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         codeScanner()
         setPermission()
+        setData()
+        setupAction()
         return root
     }
 
@@ -49,6 +56,18 @@ class QRFragment : Fragment() {
         _binding = null
     }
 
+    private fun setData(){
+        qrViewModel.productitem.observe(viewLifecycleOwner) { productsItem ->
+            binding.outputQR.text = productsItem.data.name
+        }
+    }
+    private fun setupAction(){
+        binding.btnShowinfo.setOnClickListener {
+            val intent = Intent(context, ProductItemDetailActivity::class.java)
+            intent.putExtra("ProductItem", qrViewModel.productitem.value?.data)
+            startActivity(intent)
+        }
+    }
     private fun codeScanner(){
         codeScanner = CodeScanner(requireContext(), binding.scanner)
 
@@ -63,9 +82,10 @@ class QRFragment : Fragment() {
 
             decodeCallback = DecodeCallback {
                 requireActivity().runOnUiThread {
-                    binding.outputQR.text = it.text
+                    qrViewModel.getProductItem(it.text)
+                    binding.btnShowinfo.visibility = View.VISIBLE
+                    Log.d("TEST", it.text)
                 }
-
             }
 
             errorCallback = ErrorCallback {
@@ -90,7 +110,6 @@ class QRFragment : Fragment() {
         codeScanner.startPreview()
 
     }
-
 
     override fun onDestroy() {
         // Pastikan untuk melepaskan sumber daya CodeScanner saat fragment di-destroy

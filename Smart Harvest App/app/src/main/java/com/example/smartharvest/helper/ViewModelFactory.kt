@@ -10,6 +10,7 @@ import com.example.smartharvest.ui.dashboard.DashboardViewModel
 import com.example.smartharvest.ui.home.HomeViewModel
 import com.example.smartharvest.ui.login.LoginViewModel
 import com.example.smartharvest.ui.main.MainViewModel
+import com.example.smartharvest.ui.productactivedetail.ProductActiveDetailViewModel
 import com.example.smartharvest.ui.producthistory.ProductHistoryViewModel
 import com.example.smartharvest.ui.profile.ProfileViewModel
 import com.example.smartharvest.ui.productmanagement.ProductManagementViewModel
@@ -35,9 +36,9 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repository) as T
             }
-//            modelClass.isAssignableFrom(QRViewModel::class.java) -> {
-//                QRViewModel(repository) as T
-//            }
+            modelClass.isAssignableFrom(QRViewModel::class.java) -> {
+                QRViewModel(repository) as T
+            }
             modelClass.isAssignableFrom(DashboardViewModel::class.java) -> {
                 DashboardViewModel(repository) as T
             }
@@ -49,6 +50,9 @@ class ViewModelFactory(private val repository: Repository) : ViewModelProvider.N
             }
             modelClass.isAssignableFrom(AddProductItemViewModel::class.java) -> {
                 AddProductItemViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ProductActiveDetailViewModel::class.java) -> {
+                ProductActiveDetailViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

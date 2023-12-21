@@ -5,7 +5,9 @@ import com.example.smartharvest.data.request.AddProductItemByProducerRequest
 import com.example.smartharvest.data.request.AddProductItemBySellerRequest
 import com.example.smartharvest.data.request.LoginRequest
 import com.example.smartharvest.data.request.RegisterRequest
+import com.example.smartharvest.data.responses.DataItem
 import com.example.smartharvest.data.responses.LoginResponse
+import com.example.smartharvest.data.responses.OneProductItemResponse
 import com.example.smartharvest.data.responses.ProductCatalogResponse
 import com.example.smartharvest.data.responses.ProductItemResponse
 import com.example.smartharvest.data.responses.RegisterResponse
@@ -63,4 +65,9 @@ interface ApiService {
     fun uploadItemBySeller(
         @Body request: AddProductItemBySellerRequest,
     ): Call<ProductItemResponse>
+
+    @GET("product-item/{id}")
+    fun getProductItem(
+        @Path("id") type: String
+    ): Call<OneProductItemResponse>
 }

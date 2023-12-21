@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.smartharvest.data.responses.DataItem
 import com.example.smartharvest.databinding.ProductActiveItemBinding
+import com.example.smartharvest.ui.productactivedetail.ProductActiveDetailActivity
 import com.example.smartharvest.ui.productitemdetail.ProductItemDetailActivity
 
 class ProductManagementListAdapter(private val listProductItem: List<DataItem>) : RecyclerView.Adapter<ProductManagementListAdapter.ListViewHolder>() {
@@ -70,7 +71,7 @@ class ProductManagementListAdapter(private val listProductItem: List<DataItem>) 
                         Pair(tvSellerName, "SellerName"),
                     )
 
-                val intent = Intent(itemView.context, ProductItemDetailActivity::class.java)
+                val intent = Intent(itemView.context, ProductActiveDetailActivity::class.java)
                 intent.putExtra("ProductItem", productHistoryItem)
                 itemView.context.startActivity(intent, optionsCompat.toBundle())
             }
