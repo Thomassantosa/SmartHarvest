@@ -8,7 +8,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.smartharvest.data.api.ApiConfig
 import com.example.smartharvest.data.repository.Repository
+import com.example.smartharvest.data.request.AddProductItemByDistributorRequest
 import com.example.smartharvest.data.request.AddProductItemByProducerRequest
+import com.example.smartharvest.data.request.AddProductItemBySellerRequest
 import com.example.smartharvest.data.responses.ErrorResponse
 import com.example.smartharvest.data.responses.LoginResult
 import com.example.smartharvest.data.responses.ProductCatalogResponse
@@ -32,11 +34,6 @@ class AddProductItemViewModel(private val repository: Repository) : ViewModel() 
     private val _addProductResponse = MutableLiveData<ProductItemResponse>()
     val addProductResponse: LiveData<ProductItemResponse> = _addProductResponse
 
-    lateinit var result: MutableMap<String, String>
-    init {
-        result = mutableMapOf() // Initialize here
-    }
-
     fun getUser(): LiveData<LoginResult> {
         return repository.getUser()
     }
@@ -54,21 +51,9 @@ class AddProductItemViewModel(private val repository: Repository) : ViewModel() 
             ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
-                    Log.d("TEST D", "TEST NICH")
                     val responseBody = response.body()
                     if (responseBody != null) {
-                        Log.d("TEST E", "TEST ADAA")
                         _listProductCatalog.value = response.body()
-                        result = mutableMapOf()
-                        _listProductCatalog.value?.productcatalog?.forEach { data ->
-                            result.put(data.id, data.name)
-                            Log.d("TEST F", data.name)
-                        }
-
-                        Log.d("TEST OUTPUT B", result.toString())
-//                        response.body()!!.productcatalog.forEach { data ->
-//                            result.put(data.id, data.name)
-//                        }
                     }
                 } else {
                     Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
@@ -126,8 +111,8 @@ class AddProductItemViewModel(private val repository: Repository) : ViewModel() 
                              distributorId: String, distributorName: String, status: String){
         _isLoading.value = true
         val apiService = ApiConfig().getApiService()
-        val uploadItemRequest = apiService.uploadItemByProducer(
-            AddProductItemByProducerRequest(catalogId,
+        val uploadItemRequest = apiService.uploadItemByDistributor(
+            AddProductItemByDistributorRequest(catalogId,
                 desc,price,
                 harvestPlace,
                 harvestDate, distributorId, distributorName, status)
@@ -166,8 +151,8 @@ class AddProductItemViewModel(private val repository: Repository) : ViewModel() 
                              sellerId: String, sellerName: String, status: String){
         _isLoading.value = true
         val apiService = ApiConfig().getApiService()
-        val uploadItemRequest = apiService.uploadItemByProducer(
-            AddProductItemByProducerRequest(catalogId,
+        val uploadItemRequest = apiService.uploadItemBySeller(
+            AddProductItemBySellerRequest(catalogId,
                 desc,price,
                 harvestPlace,
                 harvestDate, sellerId, sellerName, status)

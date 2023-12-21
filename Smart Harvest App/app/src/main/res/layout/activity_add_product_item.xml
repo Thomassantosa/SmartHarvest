@@ -57,8 +57,7 @@
                 android:layout_marginTop="5dp"
                 android:padding="8dp"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:entries="@array/options_array"/>
+                android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_width="wrap_content"

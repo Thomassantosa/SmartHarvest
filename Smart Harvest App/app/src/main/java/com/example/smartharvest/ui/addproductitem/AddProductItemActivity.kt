@@ -30,6 +30,8 @@ class AddProductItemActivity : AppCompatActivity() {
         binding = ActivityAddProductItemBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        spinner = binding.productCatalogSpinner
+
         setupData()
         setupAction()
     }
@@ -43,22 +45,24 @@ class AddProductItemActivity : AppCompatActivity() {
 
         addProductItemViewModel.getUser().observe(this) {user ->
             if (user.token.isNotEmpty()) {
-                Log.d("TEST", "TEST A")
                 addProductItemViewModel.getAllProductCatalog(user.token)
-                productCatalogList = addProductItemViewModel.result
-                Log.d("TEST OUTPUT", productCatalogList.toString())
-
-                spinner = binding.productCatalogSpinner
-                val adapter = ArrayAdapter(this, R.layout.simple_spinner_item, productCatalogList.values.toMutableList())
-                Log.d("TEST OUTPUT MUTABLE", productCatalogList.values.toMutableList().toString())
-                spinner.adapter = adapter
             }
         }
 
+        addProductItemViewModel.listProductCatalog.observe(this) {
+            addProductItemViewModel.listProductCatalog.value?.productcatalog?.forEach { data ->
+                productCatalogList.put(data.id, data.name) }
+            assignData()
+        }
 
         addProductItemViewModel.isLoading.observe(this) {
             showLoading(it)
         }
+    }
+
+    private fun assignData() {
+        val adapter = ArrayAdapter(this, R.layout.simple_spinner_item, productCatalogList.values.toMutableList())
+        spinner.adapter = adapter
     }
 
     private fun showLoading(isLoading: Boolean) {
@@ -77,6 +81,7 @@ class AddProductItemActivity : AppCompatActivity() {
             for (current in productCatalogList){
                 if (current.value.equals(catalogName)) catalogId = current.key
             }
+            Log.d("TEST ID", catalogId)
 
             val desc = binding.addDesc.text.toString()
             val price = binding.addPrice.text.toString().toInt()
@@ -86,7 +91,7 @@ class AddProductItemActivity : AppCompatActivity() {
 //            val month = binding.addHarvestDate.month + 1
 //            val day = binding.addHarvestDate.dayOfMonth
 //            val harvestDate = "$year-$month-$day" + "T00:00:00.000Z"
-            val harvestDate = "2023-12-20T00:00:00.000Z"
+            val harvestDate = "2023-12-20T00:00:00.000Z" // Masih dummy
 
             addProductItemViewModel.getUser().observe(this) {user ->
                 if (user.token.isNotEmpty()) {
@@ -101,15 +106,16 @@ class AddProductItemActivity : AppCompatActivity() {
                     } else if (user.type.equals("Distributor")) {
                         val distributorId = user.id
                         val distributorName = user.name
-                        val status = "In Producer"
+                        val status = "In Distributor"
                         addProductItemViewModel.uploadItemByDistributor(catalogId,
                             desc,price,
                             harvestPlace,
                             harvestDate, distributorId, distributorName, status)
+
                     } else if (user.type.equals("Seller")) {
                         val sellerId = user.id
                         val sellerName = user.name
-                        val status = "In Producer"
+                        val status = "In Seller"
                         addProductItemViewModel.uploadItemBySeller(catalogId,
                             desc,price,
                             harvestPlace,
@@ -124,7 +130,6 @@ class AddProductItemActivity : AppCompatActivity() {
                 if(response.message == "Create Product Item Success"){
                     finish()
                 }
-
             }
 
             addProductItemViewModel.errorResponse.observe(this) { response ->
