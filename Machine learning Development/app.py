@@ -7,7 +7,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
-model = tf.keras.models.load_model('smartharvest2.h5')
+model = tf.keras.models.load_model('smartharvest.h5')
 
 # Assuming you know the number of features in your input data
 num_features = 15  # Update this to match the expected number of features in your model
