@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:background="@drawable/default_cat2"
+                android:background="@drawable/photo_manggo"
                 />
 
             <TextView
