@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "This is API for SmartHarvest Application from Team CH2-PS143",
   "main": "src/index.js",
+  "prisma": {
+    "seed": "node ./src/seed-database/seed.js"
+  },
   "scripts": {
-    "startProd": "NODE_ENV=production node ./src/index.js",
-    "start": "nodemon /src/index.js",
+    "start": "NODE_ENV=production node ./src/index.js",
+    "startDev": "nodemon /src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

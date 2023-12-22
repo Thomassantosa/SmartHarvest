@@ -43,4 +43,3 @@ Fruits, veggies, meats – you name it, we track it. Forget fuzzy labels and sha
 | `/users`             |GET                  | `application/json` | `string` | This endpoint used for get all user in database you have to add authentication using barier token to access this endpoint. |
 | `/user/${email}`     |GET                  | `application/json` | `string` | This endpoint used for get user by email |
 | `/user/${email}`     |PUT                  | `application/json` | `string` | This endpoint used for update data user by spesific email |
-
