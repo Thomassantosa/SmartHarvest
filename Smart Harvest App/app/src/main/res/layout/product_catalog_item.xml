@@ -13,8 +13,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Media -->
         <ImageView
+            android:id="@+id/product_catalog_img"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:scaleType="centerCrop"
@@ -29,12 +29,14 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/product_catalog_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/product_catalog_title"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 />
             <TextView
+                android:id="@+id/product_catalog_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -42,15 +44,41 @@
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"
                 />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:text="@string/product_catalog_description"-->
+<!--                android:textAppearance="?attr/textAppearanceBody2"-->
+<!--                android:textColor="?android:attr/textColorSecondary"-->
+<!--                />-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/product_catalog_description"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
+                android:width="130dp"
+                android:text="@string/product_catalog_national_price"
+                android:textAppearance="?attr/textAppearanceBody1"
                 />
 
+            <TextView
+                android:id="@+id/national_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:text="@string/product_catalog_national_price_value"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="@color/purple_500"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -64,20 +92,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/product_catalog_price"
+                android:width="130dp"
+                android:text="@string/product_catalog_prediction_price"
                 android:textAppearance="?attr/textAppearanceBody1"
+                />
+
+            <TextView
+                android:id="@+id/prediction_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:text="@string/product_catalog_prediction_price_value"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="@color/purple_500"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/product_catalog_price_value"
-                android:textAppearance="?attr/textAppearanceBody1"
-                android:textColor="@color/purple_500"
+                android:layout_marginStart="4dp"
+                android:text="@string/product_catalog_prediction_date"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
                 />
         </LinearLayout>
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

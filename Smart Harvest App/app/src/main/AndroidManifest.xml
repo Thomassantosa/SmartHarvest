@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,12 +17,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartHarvest"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.welcomepage.WelcomePageActivity"
+            android:name=".ui.showqr.ShowQrActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.awal.AwalActivity"
+            android:name=".ui.productactivedetail.ProductActiveDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.addproductitem.AddProductItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.productitemdetail.ProductItemDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.productmanagement.ProductManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.producthistory.ProductHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.detailproductcatalog.ProductCatalogDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.welcomepage.WelcomePageActivity"
             android:exported="false" />
         <activity
             android:name=".ui.register.RegisterActivity"
@@ -26,8 +54,10 @@
             android:exported="false" />
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:exported="false" />
+        <activity
+            android:name=".ui.splashscreen.SplashScreenActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

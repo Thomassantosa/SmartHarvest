@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-
+    id("kotlin-parcelize")
 
 }
 
@@ -58,6 +58,7 @@ dependencies {
     implementation("androidx.annotation:annotation:1.7.0")
 
     implementation("androidx.activity:activity-ktx:1.8.1")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     // Testing
     testImplementation("junit:junit:4.13.2")
@@ -82,4 +83,10 @@ dependencies {
 
     // Paging
     implementation("androidx.paging:paging-runtime-ktx:3.2.1")
+
+    // QR
+    implementation ("com.github.yuriy-budiyev:code-scanner:2.3.0")
+    
+    // QR generator
+    implementation("com.google.zxing:zxing-parent:3.5.2")
 }
