@@ -29,10 +29,11 @@
 
                 <ImageView
                     android:id="@+id/img_1"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/default_cat1"
+                    android:background="@drawable/ic_account_box_24px"
                     android:contentDescription="@string/product_catalog_image"
                     />
 
@@ -63,10 +64,11 @@
 
                 <ImageView
                     android:id="@+id/img_2"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/default_cat1"
+                    android:background="@drawable/ic_inventory_24px"
                     android:contentDescription="@string/product_catalog_image"
                     />
 
@@ -97,10 +99,11 @@
 
                 <ImageView
                     android:id="@+id/img_3"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/default_cat1"
+                    android:background="@drawable/ic_history_24px"
                     android:contentDescription="@string/product_catalog_image"
                     />
 

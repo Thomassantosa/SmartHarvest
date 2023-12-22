@@ -23,7 +23,7 @@ class ProductManagementActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val layoutManager = LinearLayoutManager(this)
-        binding.rvProductManagement.layoutManager = layoutManager
+        binding.rvProductManagement.layoutManager = layoutManager.apply { setReverseLayout(true) }
 
         setupViewModel()
         setupAction()

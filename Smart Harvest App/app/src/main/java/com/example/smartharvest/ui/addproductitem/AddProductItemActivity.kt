@@ -36,7 +36,6 @@ class AddProductItemActivity : AppCompatActivity() {
 
         spinner = binding.productCatalogSpinner
 
-
         val myCalendar = Calendar.getInstance()
         val datePicker = DatePickerDialog.OnDateSetListener{ view, year, month,
                                                              dayofmonth->
@@ -50,17 +49,15 @@ class AddProductItemActivity : AppCompatActivity() {
             DatePickerDialog(this, datePicker, myCalendar.get(Calendar.YEAR),
                 myCalendar.get(Calendar.MONTH),
                 myCalendar.get(Calendar.DAY_OF_MONTH)).show()
-
         }
-
-
 
         setupData()
         setupAction()
     }
 
     private fun updateLable(mycalendar: Calendar){
-        val myFormat = "dd-MM-yyyy"
+//        val myFormat = "dd-MM-yyyy"
+        val myFormat = "yyyy-MM-dd"
         val sdf = SimpleDateFormat(myFormat, Locale.UK)
         binding.addHarvestDate.setText(sdf.format(mycalendar.time))
     }
@@ -115,12 +112,7 @@ class AddProductItemActivity : AppCompatActivity() {
             val desc = binding.addDesc.text.toString()
             val price = binding.addPrice.text.toString().toInt()
             val harvestPlace = binding.addHarvestPlace.text.toString()
-
-//            val year = binding.addHarvestDate.year
-//            val month = binding.addHarvestDate.month + 1
-//            val day = binding.addHarvestDate.dayOfMonth
-//            val harvestDate = "$year-$month-$day" + "T00:00:00.000Z"
-            val harvestDate = "2023-12-20T00:00:00.000Z" // Masih dummy
+            val harvestDate = binding.addHarvestDate.text.toString() + "T00:00:00.000Z"
 
             addProductItemViewModel.getUser().observe(this) {user ->
                 if (user.token.isNotEmpty()) {
