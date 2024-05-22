@@ -27,21 +27,40 @@ Fruits, veggies, meats – you name it, we track it. Forget fuzzy labels and sha
 ![App Screenshot3](https://github.com/Thomassantosa/SmartHarvest/blob/main/images/Screenshot3.png)
 <br>
 
-## Infrastructure Design
-![Design Infra](https://media.discordapp.net/attachments/1151090369233174605/1186933990783987722/Screenshot_2023-12-20_140323.png)
+## Cloud Computing Infrastructure
+![Design Infra](https://github.com/Thomassantosa/SmartHarvest/blob/main/images/CloudInrastrukture.png)
 
 <br/>
 
 ## SmartHarvestAPI Reference
 ### Authentications
-|Endpoint              |Method               | Parameter          | Type     | Description                                   |
-|:---------------------|:--------------------| :------------------| :------- | :---------------------------------------------|
-| `/register`          |POST                 | `application/json` | `string` | This endpoint used for user register. Payload contains name, email, password, and type field, after you fill payload and send request to server, server will response "User Created" and data user. |
-| `/login`             |POST                 | `application/json` | `string` | This endpoint used for user login. Payload contains email and password field, after you fill payload and send request to server, server will response "Login Successful" and get loginResult contains accessToken. |
+|Endpoint              |Method  | Parameter          | Authorization  | Description                                   |
+|:---------------------|:-------| :------------------| :------------- | :---------------------------------------------|
+| `/register`          |POST    | `application/json` |                | Register user                                 |
+| `/login`             |POST    | `application/json` |                | Login user                                    |
 
 ### Users
-|Endpoint              |Method               | Parameter          | Type     | Description                                   |
-|:---------------------|:--------------------| :------------------| :------- | :---------------------------------------------|
-| `/users`             |GET                  | `application/json` | `string` | This endpoint used for get all user in database you have to add authentication using barier token to access this endpoint. |
-| `/user/${email}`     |GET                  | `application/json` | `string` | This endpoint used for get user by email |
-| `/user/${email}`     |PUT                  | `application/json` | `string` | This endpoint used for update data user by spesific email |
+|Endpoint              |Method  | Parameter          | Authorization  | Description                                   |
+|:---------------------|:-------| :------------------| :------------- | :---------------------------------------------|
+| `/users`             |GET     | `application/json` |                | Ger list of users                             |
+| `/user/${email}`     |GET     | `application/json` | `Bearer Token` | Get user by email                             |
+| `/user/${email}`     |PUT     | `application/json` | `Bearer Token` | Update data user by spesific email            |
+
+### Products Catalog
+|Endpoint                      |Method  | Parameter          | Authorization  | Description                           |
+| `/products-catalog`          | GET    | `application/json` | `Bearer Token` | Get all product catalog               |
+| `/product-category/category` | GET    | `application/json` | `Bearer Token` | Get product catalog based on category |
+| `/product-id/id`             | GET    | `application/json` | `Bearer Token` |GET product by Id                      |
+| `/product-catalog`           | POST   | `application/json` | `Bearer Token` |Add Product for Catalog                |
+| `/product-catalog/id`        |PUT     | `application/json` | `Bearer Token` |Update Product Catalog                 |
+
+### Products Item
+|Endpoint                          |Method  | Parameter          | Authorization  | Description                                                     |
+| `/products-item`                 | GET    | `application/json` | `Bearer Token` | Get all product item                                            |
+| `/products-item-producer/:id`    | GET    | `application/json` | `Bearer Token` | Get all products based on producer_id                           |
+| `/products-item-distributor/:id` | GET    | `application/json` | `Bearer Token` | Get all products based on distributor_id                        |
+| `/products-item-seller/:id`      | GET    | `application/json` | `Bearer Token` | Get all products based on seller_id                             |
+| `/product-item/:id`              | GET    | `application/json` | `Bearer Token` | Get product_item based on id                                    |
+| `/product-item`                  | POST   | `application/json` | `Bearer Token` | Add new product item                                            |
+| `/product-item/:id`              | PUT    | `application/json` | `Bearer Token` | Update product information by distributor/seller using params id|
+
