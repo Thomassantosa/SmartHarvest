@@ -30,6 +30,9 @@ Fruits, veggies, meats – you name it, we track it. Forget fuzzy labels and sha
 ## Cloud Computing Infrastructure
 ![Design Infra](https://github.com/Thomassantosa/SmartHarvest/blob/main/images/CloudInrastrukture.png)
 
+## Database Design
+![Design database](https://github.com/Thomassantosa/SmartHarvest/blob/main/images/DatabaseRelation.jpg)
+
 <br/>
 
 ## SmartHarvestAPI Reference
