@@ -22,7 +22,9 @@ Fruits, veggies, meats – you name it, we track it. Forget fuzzy labels and sha
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot1](https://github.com/Thomassantosa/SmartHarvest/blob/main/images/Screenshot1.png)
+![App Screenshot2](https://github.com/Thomassantosa/SmartHarvest/blob/main/images/Screenshot2.png)
+![App Screenshot3](https://github.com/Thomassantosa/SmartHarvest/blob/main/images/Screenshot3.png)
 <br>
 
 ## Infrastructure Design
