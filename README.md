@@ -48,6 +48,7 @@ Fruits, veggies, meats – you name it, we track it. Forget fuzzy labels and sha
 
 ### Products Catalog
 |Endpoint                      |Method  | Parameter          | Authorization  | Description                           |
+|:-----------------------------|:-------| :------------------| :------------- | :-------------------------------------|
 | `/products-catalog`          | GET    | `application/json` | `Bearer Token` | Get all product catalog               |
 | `/product-category/category` | GET    | `application/json` | `Bearer Token` | Get product catalog based on category |
 | `/product-id/id`             | GET    | `application/json` | `Bearer Token` |GET product by Id                      |
@@ -56,6 +57,7 @@ Fruits, veggies, meats – you name it, we track it. Forget fuzzy labels and sha
 
 ### Products Item
 |Endpoint                          |Method  | Parameter          | Authorization  | Description                                                     |
+|:---------------------------------|:-------| :------------------| :------------- | :---------------------------------------------------------------|
 | `/products-item`                 | GET    | `application/json` | `Bearer Token` | Get all product item                                            |
 | `/products-item-producer/:id`    | GET    | `application/json` | `Bearer Token` | Get all products based on producer_id                           |
 | `/products-item-distributor/:id` | GET    | `application/json` | `Bearer Token` | Get all products based on distributor_id                        |
